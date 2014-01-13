@@ -2,19 +2,13 @@
 
 Web-application example project using:
 
-  Clojure
-
-  Ring
-
-  Friend
-
-  Compojure
-
-  Bootstrap
-  
-  Enlive
-  
-  Domina (coming soon)
+* [Clojure](http://clojure.org/)
+* [Ring](https://github.com/ring-clojure/ring/wiki)
+* [Friend](https://github.com/cemerick/friend)
+* [Compojure](https://github.com/weavejester/compojure/wiki)
+* [Bootstrap](http://getbootstrap.com/getting-started/ )
+* [Enlive](https://github.com/cgrand/enlive/wiki/_pages)
+* [Domina](https://github.com/levand/domina) (coming soon)
 
 The focus of this project is to demonstrate the friend authentication
 tools in a somewhat robust manner. The application may serve as a good
