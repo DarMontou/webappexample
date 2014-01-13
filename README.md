@@ -1,10 +1,10 @@
 # webappexample
 
 Web-application example project using:
-    Clojure
-    Ring
-    Friend
-    Compojure
+Clojure
+Ring
+Friend
+Compojure
     Bootstrap
     Enlive
     Domina (coming soon)
@@ -21,9 +21,13 @@ Clone the repo using the URL in the side bar.
 ## Usage
 
 Server (for a quick demo):
+
+```
     $ cd webappexample
-    
+        
     webappexample$ lein ring server
+
+```
 
 Clojure REPL: see https://github.com/clojure-emacs/cider
 
@@ -31,6 +35,7 @@ ClojureScript REPL: see Austin REPL below.
 
 ## Austin REPL - more on this coming soon...
 
+```
 [webappexample]$ lein do cljsbuild once, repl
 
 Compiling ClojureScript.
@@ -68,7 +73,7 @@ Enjoy ;)
 
 ## 
 
-Thanks to Richard Norman for helping with this.
+Thanks to Norman Richards for helping with this.
 
 ### Like the WebAppExample project?
 
