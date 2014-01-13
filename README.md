@@ -1,13 +1,20 @@
 # webappexample
 
 Web-application example project using:
-Clojure
-Ring
-Friend
-Compojure
-    Bootstrap
-    Enlive
-    Domina (coming soon)
+
+  Clojure
+
+  Ring
+
+  Friend
+
+  Compojure
+
+  Bootstrap
+  
+  Enlive
+  
+  Domina (coming soon)
 
 The focus of this project is to demonstrate the friend authentication
 tools in a somewhat robust manner. The application may serve as a good
@@ -69,13 +76,13 @@ cljs.user=> (js/alert "Salut!")
 nil
 
 Enjoy ;)
-
+```
 
 ## 
 
-Thanks to Norman Richards for helping with this.
+Many thanks to Norman Richards for helping with this.
 
-### Like the WebAppExample project?
+### Like this project?
 
 Please follow me on GitHub and/or Twitter (@DarMontou). Please let me
 know if you'd like to see any specific enhancements. 
