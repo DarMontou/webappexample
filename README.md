@@ -1,4 +1,4 @@
-# webappexample
+# WebAppExample
 
 Web-application example project using:
 
@@ -14,6 +14,10 @@ The focus of this project is to demonstrate the friend authentication
 tools in a somewhat robust manner. The application may serve as a good
 starting point for new clojure based web applications which require
 user authentication.
+
+## Project Presentation
+
+[![](https://github.com/DarMontou/webappexample/raw/master/docs/presentation.png)](http://goo.gl/XxclMQ)
 
 ## Installation
 
