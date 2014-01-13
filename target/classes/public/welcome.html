@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html id="THE_HTML">
+  <head>
+    <title>WebAppExample</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" media="screen">    
+  </head>
+  <body>
+    <!-- NAVBAR ============================================================================================ -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand logo" href="#"> <span class="brand">WebAppExample</a>         
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="/">Home</a></li>
+            <li class="hidden-sm"><a href="/about">About</a></li>
+            <li class="hidden-sm"><a href="/contact">Contact</a></li>           
+          </ul>
+          <!-- User -->
+          <div class="user pull-right">
+            <a href="logout" class="user btn-lg"><span class="user">&#60;user&#62;</span> <span class="glyphicon glyphicon-user"></span> <span class="glyphicon glyphicon-cog"></span> <span class="glyphicon glyphicon-log-out"></span></a> 
+          </div><!--/.user pull-right-->
+        </div><!--/.nav-collapse -->
+      </div><!--/.countainer -->
+    </div><!--/.navbar navbar-default navbar-fixed-top --> 
+   
+    <!-- Welcome Message ================================================================================ -->
+    <div class="container">
+      <h1>Welcome, <span class="user">&#60;user&#62;</span>! <br><br>Thanks for signing up with the Web App Example.</h1>
+    </div><!--/.container-->  
+ 
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/app.js"></script>
+
+  </body>
+</html>

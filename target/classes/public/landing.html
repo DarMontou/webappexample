@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html id="THE_HTML">
+  <head>
+    <title>WebAppExample</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" media="screen">    
+  </head>
+  <body>
+    <!-- NAVBAR ============================================================================================ -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand logo" href="#"> <span class="brand-next">WebAppExample</a>         
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="hidden-sm"><a href="/">Home</a></li>
+            <!-- This list will be handled by a snippet instead:
+	    <li class="hidden-sm"><a href="/about">About</a></li>
+            <li class="hidden-sm"><a href="/contact">Contact</a></li>  
+	    -->         
+          </ul>
+          <!-- Sign In Form -->
+	  <div class="sign-in-form">
+            <form action="login" method="POST" class="navbar-form pull-right">
+              <input name="username" class="span2 btn-sm username" type="text" placeholder=" Returning User or Email">
+              <input name="password" class="span2 btn-sm password" type="password" placeholder="Password">
+              <button type="submit" class="btn btn-primary btn-sm"><i class="icon-user"></i> Sign In</button>
+            </form>
+	  </div><!--/.sign-in-form -->
+        </div><!--/.nav-collapse -->
+      </div><!--/.countainer -->
+    </div><!--/.navbar navbar-default navbar-fixed-top --> 
+   
+    <div class="container">
+      <div id="content">
+
+        <!-- Registration Form ================================================================================ -->    
+        <form action="register" method="POST" class="col-md-4">
+          <input name="username" type="email" class="input-block-level btn-lg register username" placeholder="Your email" autofocus>
+          <input name="password" type="password" class="input-block-level btn-lg register password" placeholder="Create a password" pattern="^(?=.*\d)(?=.*[a-zA-Z]).{7,50}$" title="Use at least one lowercase letter, one numeral, and seven characters.">
+          <p>Use at least one lowercase letter, one numeral, and seven characters.</p>
+          <p><button type="submit" class="btn btn-lg btn-success register">Sign-up for WebAppExample </button></p>
+          <p> <a href="#TermsModal" data-toggle="modal">terms of service</a> - <a href="#PrivacyModal" data-toggle="modal">privacy policy</a></p>
+        </form>
+
+      </div><!--/#content -->
+    </div><!--/.container-->  
+ 
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/app.js"></script>
+
+  </body>
+</html>

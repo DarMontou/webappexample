@@ -1,0 +1,4 @@
+@import url("bootstrap.min.css");
+@import url("bootstrap-responsive.min.css");
+
+body { margin-top: 65px; } /* Keep content from hiding under navbar */

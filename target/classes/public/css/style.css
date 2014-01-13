@@ -1,0 +1,27 @@
+@import url("layout.css");
+.register { width: 100%; }
+
+.user { margin-top: 15px; }
+
+}
+
+/***** Responsiveness *****/
+
+/*  Large devices - desktops */
+@media (min-width: 1200px) {  
+
+}
+/* Medium devices - desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+     
+/* Small devices - tablets*/
+@media (min-width: 768px) and (max-width: 991px) { 
+.register { width: 50%; }
+} 
+     
+/* Extra small devices - phones */
+@media (max-width: 767px) { 
+
+}
