@@ -5,20 +5,21 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :source-paths ["src/clj" "src/cljs"]
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-1978"]
-                 [com.cemerick/piggieback "0.1.0"]
+                 [org.clojure/clojurescript "0.0-2138"]
+                 [com.cemerick/piggieback "0.1.2"]
                  [ring "1.2.1"]                
                  [compojure "1.1.6"]
                  [enlive "1.1.5"]
                  [domina "1.0.2"]
                  [com.cemerick/friend "0.2.0"]]
+  :plugins [[com.cemerick/austin "0.1.3"]
+            [lein-cljsbuild "1.0.1"]
+            [lein-ring "0.8.10"]]
   
   :resource-paths ["target/classes/public"]
 
   :profiles {:dev {:repl-options {:init-ns webappexample.core}
-                   :plugins [[com.cemerick/austin "0.1.1"]
-                             [lein-cljsbuild "0.3.4"]
-                             [lein-ring "0.8.8"]]
+                   :plugins []
                    :cljsbuild {:builds [{:source-paths ["src/cljs"]
                                          :compiler {:output-to "target/classes/public/scripts/app.js"
                                                     :optimizations :simple
