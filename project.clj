@@ -18,13 +18,13 @@
             [lein-cljsbuild "1.0.1"]
             [lein-ring "0.8.10"]]
 
-  :resource-paths ["target/classes/public"]
-  :war-resource-paths ["target/classes/servlets"]
+  :resource-paths ["resources/public"]
+  :war-resource-paths ["resources/servlets"]
 
   :profiles {:dev {:repl-options {:init-ns webappexample.core}
                    :plugins []
                    :cljsbuild {:builds [{:source-paths ["src/cljs"]
-                                         :compiler {:output-to "target/classes/public/scripts/app.js"
+                                         :compiler {:output-to "resources/public/scripts/app.js"
                                                     :optimizations :simple
                                                     :pretty-print true}}]}}}
   :main webappexample.core
