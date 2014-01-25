@@ -19,7 +19,8 @@
             [cemerick.friend :as friend]
             (cemerick.friend [workflows :as workflows]
                              [credentials :as creds]))
-  (:import java.net.URI))
+  (:import java.net.URI)
+  (:gen-class))
 
 (reload/auto-reload *ns*) ; To automatically reload Enlive templates -
                           ; wrap-reload used below in handler
@@ -41,6 +42,16 @@
 
 (defn get-friend-username [req] ; This doesn't smell right...
   (:username (second (first (:authentications (:cemerick.friend/identity (:session req)))))))
+
+
+#_(defn get-friend-username [req] ; This doesn't smell right...
+  (:username (second (first (:authentications (:cemerick.friend/identity (:session req)))))))
+
+
+
+;;;destructure?
+;;;get-in?
+
 
 (defn trim-email-address [email] (first (re-find #"(\S)+(?=@)" email)))
 
@@ -168,7 +179,7 @@
       (wrap-session)
       (wrap-reload)))
 
-(defn run []
+(defn -main []
   (defonce ^:private server
-    (ring.adapter.jetty/run-jetty #'secured-site {:port 8080 :join? false}))
+    (ring.adapter.jetty/run-jetty #'secured-site))
   server)
