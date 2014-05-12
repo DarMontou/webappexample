@@ -8,16 +8,17 @@ Web-application example project using:
 * [Compojure](https://github.com/weavejester/compojure/wiki)
 * [Bootstrap](http://getbootstrap.com/getting-started/ )
 * [Enlive](https://github.com/cgrand/enlive/wiki/_pages)
-* [Domina](https://github.com/levand/domina) (coming soon)
 
 The focus of this project is to demonstrate the friend authentication
 tools in a somewhat robust manner. The application may serve as a good
 starting point for new clojure based web applications which require
 user authentication.
 
-## Project Presentation
+## Project Presentations
 
-[![](https://github.com/DarMontou/webappexample/raw/master/docs/presentation.png)](http://goo.gl/XxclMQ)
+[![](https://github.com/DarMontou/webappexample/raw/master/docs/friend_presentation.png)](http://goo.gl/XxclMQ)
+
+[![](https://github.com/DarMontou/webappexample/raw/master/docs/enlive_presentation.png)](http://goo.gl/01E09j)
 
 ## Installation
 
@@ -53,7 +54,7 @@ Clojure 1.5.1
  Javadoc: (javadoc java-object-or-class-here)
     Exit: Control+D or (exit) or (quit)
 
-webappexample.core=> (run)
+webappexample.core=> (-main)
 
 2013-11-01 11:41:01.248:INFO:oejs.Server:jetty-7.6.8.v20121106
 2013-11-01 11:41:01.313:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:8080
