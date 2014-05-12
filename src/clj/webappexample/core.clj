@@ -47,11 +47,8 @@
 #_(defn get-friend-username [req] ; This doesn't smell right...
   (:username (second (first (:authentications (:cemerick.friend/identity (:session req)))))))
 
-
-
 ;;;destructure?
 ;;;get-in?
-
 
 (defn trim-email-address [email] (first (re-find #"(\S)+(?=@)" email)))
 
@@ -101,12 +98,9 @@
                                      (html/wrap :h2))
                 (html/do-> (html/content  "Best check yo self, page not found!")
                                    (html/wrap :h2 {:class "alert alert-warning" :style "text-align: center;"}))))
-  
-(html/defsnippet all-css (io/resource "public/css/all-min.css") [:style] [])
 
 (html/deftemplate landing (io/resource "public/landing.html")
   [req]
-  [:head :style] (html/substitute (all-css))
   [:body :div.navbar] (html/substitute (navbar req))
   [:body :#content] (html/substitute (non-app-content req))
   [:body] (html/append (html/html [:script (browser-connected-repl-js)]))

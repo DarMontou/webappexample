@@ -1,0 +1,102 @@
+=> (html/wrap :div)
+#<enlive_html$wrap$fn__5039 net.cgrand.enlive_html$wrap$fn__5039@11e61744>
+
+;;; Note that wrap returns a function, we need to pass the resultant function an argument for its content
+
+=> ((html/wrap :div) "my-content")
+{:tag :div, :attrs nil, :content ["my-content"]}
+
+;;; wrap accepts a second argument for attributes
+
+=> ((html/wrap :div {:class "my-class" :id "my-id"}) "my-content")
+{:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ["my-content"]}
+
+;;; If you're not used to examaning HTML like this then you can print the HTML
+
+=> (print (html/emit* ((html/wrap :div {:class "my-class" :id "my-id"}) "my-content")))
+(< div   class =" my-class "   id =" my-id " > my-content </ div >)nil
+
+;;; We'll use this a few times so let's create a new function
+
+=> (defn my-print [node] (print (html/emit* node)))
+#'webappexample.core/my-print
+
+;;; Let's save this simple node for further experiments
+
+=> (def my-node ((html/wrap :div {:class "my-class" :id "my-id"}) "my-content"))
+#'webappexample.core/my-node
+
+;;; Unwrap performs the reverse of wrap, note that the content is more likely to be additional nodes
+;;; as opposed to simple string content
+
+=> (html/unwrap my-node)
+["my-content"]
+
+;;; The content of a node can be easily replaced
+
+=> ((html/content "new content") my-node)
+{:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ("new content")}
+
+;;; Enlive has a function to easily specify attributes
+
+=> ((html/set-attr :id "new id" :class "new class") my-node)
+{:tag :div, :attrs {:class "new class", :id "new id"}, :content ["my-content"]}
+
+=> ((html/append "append this") my-node)
+{:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ("my-content" "append this")}
+
+;;; Note how content is appended when the HTML is printed out
+
+=> (my-print ((html/append "append this") my-node))
+(< div   class =" my-class "   id =" my-id " > my-content append this </ div >)nil
+
+=> ((html/prepend "prepend this") my-node)
+{:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ("prepend this" "my-content")}
+
+;;; Let's nest a node for a little more realistic example...
+
+=> ((html/prepend my-node) my-node)
+{:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ({:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ["my-content"]} "my-content")}
+
+=> (my-print ((html/prepend my-node) my-node))
+(< div   class =" my-class "   id =" my-id " > < div   class =" my-class "   id =" my-id " > my-content </ div > my-content </ div >)nil
+
+;;; Let's save the nested node for further experimentation 
+
+=> (def nested-node ((html/prepend my-node) my-node))
+#'webappexample.core/nested-node
+
+;;; Note that the id attribute should be unique, let's remove it from the parent div
+
+=> ((html/remove-attr :id) nested-node)
+{:tag :div, :attrs {:class "my-class"}, :content ({:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ["my-content"]} "my-content")}
+
+;;; That's better, let's redefine nested-node now
+
+=> (def nested-node ((html/remove-attr :id) nested-node))
+#'webappexample.core/nested-node
+
+;;; Let's select the node with an id of my-id under our div
+
+=> (html/at nested-node [:div :> :#my-id] (html/content "nested content"))
+[{:tag :div, :attrs {:class "my-class"}, :content [{:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ("nested content")} "my-content"]}]
+
+;;; Since my-id is unique could the selector (:div :> :#my-id) have been simplified?
+
+;;; Let's create a set of content for cloning...
+
+=> (def some-content (sorted-set "first content" "second content" "third content"))
+#'webappexample.core/some-content
+
+;;; Note that clone-for takes a vector similar to doseq and returns a function
+
+=> ((html/clone-for [each-content some-content] (html/content each-content)) my-node)
+({:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ("first content")} {:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ("second content")} {:tag :div, :attrs {:class "my-class", :id "my-id"}, :content ("third content")})
+
+=> (my-print ((html/clone-for [each-content some-content] (html/content each-content)) my-node))
+(< div   class =" my-class "   id =" my-id " > first content </ div > < div   class =" my-class "   id =" my-id " > second content </ div > < div   class =" my-class "   id =" my-id " > third content </ div >)nil
+
+
+
+
+
