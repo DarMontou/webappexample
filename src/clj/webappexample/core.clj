@@ -102,11 +102,15 @@
                 (html/do-> (html/content  "Best check yo self, page not found!")
                                    (html/wrap :h2 {:class "alert alert-warning" :style "text-align: center;"}))))
   
+(html/defsnippet all-css (io/resource "public/css/all-min.css") [:style] [])
+
 (html/deftemplate landing (io/resource "public/landing.html")
   [req]
+  [:head :style] (html/substitute (all-css))
   [:body :div.navbar] (html/substitute (navbar req))
   [:body :#content] (html/substitute (non-app-content req))
-  [:body] (html/append (html/html [:script (browser-connected-repl-js)])))
+  [:body] (html/append (html/html [:script (browser-connected-repl-js)]))
+  )
 
 ;;; Default page for erroneous logins 
 (html/deftemplate login (io/resource "public/landing.html")
